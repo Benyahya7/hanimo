@@ -1,0 +1,95 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Admin list: UIDs in /admins/{uid} can write catalog data.
+    // Owner email is also an admin, so raiss95@gmail.com is admin on sign-in.
+    function isAdmin() {
+      return request.auth != null
+        && (exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+            || request.auth.token.email == "raiss95@gmail.com");
+    }
+
+    // Catalog: anyone (including signed-out viewers) can read visible items.
+    // Only admins can create / edit / delete.
+    match /categories/{categoryId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /items/{itemId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    // Episode links under an item: anyone can read, only admins write.
+    match /items/{itemId}/episodes/{epId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /playlists/{playlistId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    // Home carousel banners, add-ons and update notices (1.0.5):
+    // anyone can read them, only admins can write them.
+    match /banners/{bannerId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /addons/{addonId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /updates/{updateId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Admin list itself: only admins can read/write it.
+    match /admins/{uid} {
+      allow read, write: if isAdmin();
+    }
+
+    // App update config: anyone can read it (so the update banner works
+    // for signed-out viewers too); only admins can write it.
+    match /config/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // User messages: addressed by UID + Hanimo ID, never by email, so a
+    // user can chat with a friend knowing only their Hanimo ID. A message
+    // can be read by its sender or recipient; created only by its sender;
+    // the recipient may mark it read; no deletes.
+    match /messages/{msgId} {
+      allow read: if request.auth != null && (request.auth.uid == resource.data.fromUid || request.auth.uid == resource.data.toUid);
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.fromUid;
+      allow update: if request.auth != null && request.auth.uid == resource.data.toUid;
+      allow delete: if false;
+    }
+
+    // Watch Together parties: any signed-in user can read a party (the
+    // 6-letter code is the key), create one, and update playback state;
+    // only the host can delete it, which ends the party for everyone.
+    match /parties/{code} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null && request.resource.data.hostUid == request.auth.uid;
+      allow update: if request.auth != null;
+      allow delete: if request.auth != null && resource.data.hostUid == request.auth.uid;
+    }
+
+    // Presence (online / last seen): public read so friends can see it,
+    // but only the owner can write their own presence doc. Email is never
+    // stored here — only the Hanimo ID, display name and photo.
+    match /presence/{uid} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == uid;
+    }
+
+    // Per-user data: only that signed-in user.
+    match /users/{uid} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+    match /users/{uid}/{document=**} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+  }
+}

@@ -32,6 +32,7 @@ dependencies:
     sdk: flutter
   url_launcher: ^6.3.1
   cupertino_icons: ^1.0.8
+  http: ^1.6.0
 
 dev_dependencies:
   flutter_test:
@@ -58,6 +59,9 @@ flutter:
     - assets/images/hero.webp
     - assets/images/series.webp
     - assets/images/movie.webp
+    - assets/images/cyberpunk.webp
+    - assets/images/fantasy.webp
+    - assets/images/wordmark.png
     - assets/icon/hanimo-icon.png
 
   # To add assets to your application, add an assets section, like this:
