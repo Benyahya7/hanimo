@@ -1,16 +1,23 @@
 import 'dart:async';
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
 
-// Cinejoy-style Hanimo site: dark, poster rows with ratings, genre chips,
-// live catalog from Jikan (no key), and a big 1.0.6 download section.
+// Hanimo 2.0.1 official site — Flutter web, deployed to GitHub Pages.
+// Dark violet/pink 2.0 design. No live catalog on this page on purpose:
+// the app's catalog comes from Animeify's server, which does not send
+// CORS headers, so a browser cannot read it directly. The catalog lives
+// inside the Android app — this page is the download + showcase page.
 const apkUrl =
-    'https://github.com/benyahya7/hanimo/releases/download/v1.0.6/Hanimo-1.0.6.apk';
+    'https://github.com/benyahya7/hanimo/releases/download/v2.0.1/Hanimo-2.0.1.apk';
 const repoUrl = 'https://github.com/benyahya7/hanimo';
-const appVersion = '1.0.6';
-const apkSize = '63 MB';
+const appVersion = '2.0.1';
+const apkSize = '61 MB';
+
+const _bg = Color(0xFF0A0A14);
+const _surface = Color(0xFF14141F);
+const _card = Color(0xFF1C1C2A);
+const _violet = Color(0xFF7C5CFF);
+const _pink = Color(0xFFFF3D7F);
 
 void main() => runApp(const HanimoSite());
 
@@ -22,36 +29,68 @@ class HanimoSite extends StatelessWidget {
       title: 'Hanimo — Watch anime, your way',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: const Color(0xFF0B0B10),
+        scaffoldBackgroundColor: _bg,
         colorScheme: const ColorScheme.dark(
-            primary: Color(0xFFE50914), secondary: Color(0xFFE50914)),
-        cardTheme: const CardThemeData(color: Color(0xFF16161F)),
+            primary: _violet, secondary: _pink, surface: _surface),
+        cardTheme: const CardThemeData(color: _card),
+        filledButtonTheme: FilledButtonThemeData(
+          style: FilledButton.styleFrom(
+            backgroundColor: _violet,
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(14)),
+          ),
+        ),
       ),
       home: const HomePage(),
     );
   }
 }
 
-class Anime {
-  final int malId;
-  final String title;
-  final String image;
-  final double score;
-  final int year;
-  final String type;
-  final List<String> genres;
-  final String url;
-  Anime.fromJson(Map<String, dynamic> j)
-      : malId = (j['mal_id'] as num?)?.toInt() ?? 0,
-        title = (j['title'] as String?) ?? '',
-        image = ((j['images'] as Map?)?['jpg'] as Map?)?['large_image_url'] as String? ?? '',
-        score = ((j['score'] as num?)?.toDouble()) ?? 0,
-        year = (j['year'] as num?)?.toInt() ?? 0,
-        type = (j['type'] as String?) ?? '',
-        genres = ((j['genres'] as List?) ?? [])
-            .map((g) => (g as Map)['name'] as String)
-            .toList(),
-        url = (j['url'] as String?) ?? '';
+/// The new 2.0 logo, drawn in code so it never depends on an asset file:
+/// violet-to-pink gradient H, pink play triangle as the crossbar.
+class HanimoLogo extends StatelessWidget {
+  final double size;
+  const HanimoLogo({super.key, this.size = 36});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: size,
+      height: size,
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [_violet, _pink],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(size * 0.24),
+      ),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                  width: size * 0.14,
+                  height: size * 0.62,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(2))),
+              SizedBox(width: size * 0.30),
+              Container(
+                  width: size * 0.14,
+                  height: size * 0.62,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(2))),
+            ],
+          ),
+          Icon(Icons.play_arrow, size: size * 0.42, color: Colors.white),
+        ],
+      ),
+    );
+  }
 }
 
 class HomePage extends StatefulWidget {
@@ -61,41 +100,29 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final _searchCtrl = TextEditingController();
   final _pageCtrl = PageController();
   Timer? _timer;
   int _page = 0;
-  String _genre = 'All';
-  String _query = '';
-  bool _loading = true;
-  String _err = '';
-  List<Anime> _top = [];
-  List<Anime> _movies = [];
-  List<Anime> _series = [];
-
-  static const _genres = [
-    'All',
-    'Action',
-    'Adventure',
-    'Comedy',
-    'Drama',
-    'Fantasy',
-    'Romance',
-    'Sci-Fi',
-    'Horror',
-  ];
 
   static const _hero = [
     ('assets/images/hero.webp', 'Your anime universe, in one app',
-        'Series, movies and live — from your own links and playlists.'),
-    ('assets/images/cyberpunk.webp', 'Watch Together',
-        'Start a party, invite a friend by Hanimo ID, watch in sync.'),
-    ('assets/images/fantasy.webp', 'Friends & chat',
-        'Every user gets a Hanimo ID. See who is online, chat by ID.'),
-    ('assets/images/series.webp', 'Arabic UI, glass design',
-        'Switch to عربي in one tap. Animefy-style transparent look.'),
-    ('assets/images/movie.webp', 'Chromecast built in',
-        'Cast any stream to your TV, straight from the player.'),
+        'Series and movies, fresh from the server — trending, latest episodes, airing today.'),
+    ('assets/images/cyberpunk.webp', 'Tap a title, pick a server, watch',
+        'Every episode lists its servers. MediaFire HD plays right in the app.'),
+    ('assets/images/fantasy.webp', 'My List & Continue Watching',
+        'Save favourites, pick up exactly where you left off.'),
+    ('assets/images/series.webp', 'Arabic UI, one tap',
+        'Switch to عربي — full RTL, same violet-to-pink design.'),
+    ('assets/images/movie.webp', 'Rebuilt from scratch — 2.0',
+        'Clean architecture, nothing fails silently: every screen shows what happened and how to retry.'),
+  ];
+
+  static const _showcase = [
+    ('assets/images/hero.webp', 'Home', 'Trending now, latest episodes, airing today, this season.'),
+    ('assets/images/series.webp', 'Browse', 'Series and movies, genre filters, load more.'),
+    ('assets/images/cyberpunk.webp', 'Search', 'Live search — type 3 letters and results appear.'),
+    ('assets/images/movie.webp', 'Player', 'Tap controls, ±10s, speed, fullscreen, resume.'),
+    ('assets/images/fantasy.webp', 'Admin', 'Import top anime, manage the catalog, publish updates.'),
   ];
 
   @override
@@ -108,45 +135,12 @@ class _HomePageState extends State<HomePage> {
           duration: const Duration(milliseconds: 800),
           curve: Curves.easeInOut);
     });
-    _loadCatalog();
-  }
-
-  Future<List<Anime>> _fetchTop(String query) async {
-    final res = await http
-        .get(Uri.parse('https://api.jikan.moe/v4/top/anime?$query'))
-        .timeout(const Duration(seconds: 15));
-    if (res.statusCode != 200) throw Exception('Jikan ${res.statusCode}');
-    final body = jsonDecode(res.body) as Map<String, dynamic>;
-    return ((body['data'] as List?) ?? [])
-        .map((e) => Anime.fromJson(e as Map<String, dynamic>))
-        .toList();
-  }
-
-  Future<void> _loadCatalog() async {
-    try {
-      final top = await _fetchTop('limit=20&filter=bypopularity');
-      await Future.delayed(const Duration(milliseconds: 400));
-      final movies = await _fetchTop('limit=20&type=movie&filter=bypopularity');
-      await Future.delayed(const Duration(milliseconds: 400));
-      final series = await _fetchTop('limit=20&type=tv&filter=bypopularity');
-      if (mounted) {
-        setState(() {
-          _top = top;
-          _movies = movies;
-          _series = series;
-          _loading = false;
-        });
-      }
-    } catch (e) {
-      if (mounted) setState(() { _loading = false; _err = '$e'; });
-    }
   }
 
   @override
   void dispose() {
     _timer?.cancel();
     _pageCtrl.dispose();
-    _searchCtrl.dispose();
     super.dispose();
   }
 
@@ -157,18 +151,6 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  List<Anime> _filter(List<Anime> list) {
-    var out = list;
-    if (_genre != 'All') {
-      out = out.where((a) => a.genres.contains(_genre)).toList();
-    }
-    if (_query.isNotEmpty) {
-      final q = _query.toLowerCase();
-      out = out.where((a) => a.title.toLowerCase().contains(q)).toList();
-    }
-    return out;
-  }
-
   @override
   Widget build(BuildContext context) {
     final wide = MediaQuery.sizeOf(context).width > 800;
@@ -177,18 +159,16 @@ class _HomePageState extends State<HomePage> {
         slivers: [
           SliverAppBar(
             pinned: true,
-            backgroundColor: const Color(0xFF0B0B10).withValues(alpha: 0.92),
+            backgroundColor: _bg.withValues(alpha: 0.92),
             title: Row(children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.asset('assets/icon/hanimo-icon.png',
-                    width: 36, height: 36, fit: BoxFit.cover),
-              ),
+              const HanimoLogo(size: 36),
               const SizedBox(width: 10),
               const Text('Hanimo',
                   style: TextStyle(
-                      fontWeight: FontWeight.w900,
-                      color: Color(0xFFE50914))),
+                      fontWeight: FontWeight.w900, color: Colors.white)),
+              const Text('.',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w900, color: _pink)),
             ]),
             actions: [
               if (wide) ...[
@@ -213,31 +193,9 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _heroCarousel(wide),
-                _genreChips(),
-                if (_loading)
-                  const Padding(
-                    padding: EdgeInsets.all(32),
-                    child: Center(child: CircularProgressIndicator()),
-                  )
-                else if (_err.isNotEmpty)
-                  Padding(
-                    padding: const EdgeInsets.all(24),
-                    child: Text(
-                      'Catalog could not load right now ($_err). The app and download below still work.',
-                      style: const TextStyle(color: Colors.white54),
-                    ),
-                  )
-                else ...[
-                  _row('Top Rated Anime', _filter(_top)),
-                  _row('Top Movies', _filter(_movies)),
-                  _row('Top Series', _filter(_series)),
-                  _row(
-                    'Award-Winning Classics',
-                    _filter(_top.where((a) => a.year > 0 && a.year <= 2010).toList()),
-                  ),
-                ],
-                _categories(wide),
+                _showcaseSection(wide),
                 _download(wide),
+                _installSteps(wide),
                 _features(wide),
                 _footer(),
               ],
@@ -288,7 +246,8 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 12, vertical: 5),
                     decoration: BoxDecoration(
-                      color: const Color(0xFFE50914),
+                      gradient: const LinearGradient(
+                          colors: [_violet, _pink]),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text('NEW  •  HANIMO $appVersion  •  ANDROID',
@@ -331,240 +290,64 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _genreChips() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Padding(
-          padding: EdgeInsets.fromLTRB(24, 24, 24, 10),
-          child: Text('Browse by Genre',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900)),
-        ),
-        SizedBox(
-          height: 44,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            itemCount: _genres.length,
-            itemBuilder: (context, i) {
-              final g = _genres[i];
-              final sel = _genre == g;
-              return Padding(
-                padding: const EdgeInsets.only(right: 8),
-                child: ChoiceChip(
-                  label: Text(g),
-                  selected: sel,
-                  selectedColor: const Color(0xFFE50914),
-                  backgroundColor: Colors.white.withValues(alpha: 0.06),
-                  labelStyle: TextStyle(
-                      color: sel ? Colors.white : Colors.white70,
-                      fontWeight:
-                          sel ? FontWeight.bold : FontWeight.normal),
-                  side: BorderSide(
-                      color: Colors.white.withValues(alpha: 0.08)),
-                  onSelected: (_) => setState(() => _genre = g),
-                ),
-              );
-            },
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(24, 14, 24, 0),
-          child: TextField(
-            controller: _searchCtrl,
-            onChanged: (v) => setState(() => _query = v.trim()),
-            decoration: InputDecoration(
-              hintText: 'Search titles…',
-              prefixIcon: const Icon(Icons.search),
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12)),
-              filled: true,
-              fillColor: Colors.white.withValues(alpha: 0.06),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _row(String title, List<Anime> items) {
-    if (items.isEmpty) return const SizedBox.shrink();
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(24, 26, 24, 12),
-          child: Row(children: [
-            Container(
-                width: 4,
-                height: 22,
-                decoration: BoxDecoration(
-                    color: const Color(0xFFE50914),
-                    borderRadius: BorderRadius.circular(2))),
-            const SizedBox(width: 10),
-            Expanded(
-                child: Text(title,
-                    style: const TextStyle(
-                        fontSize: 22, fontWeight: FontWeight.w900))),
-            Text('${items.length} titles',
-                style: const TextStyle(color: Colors.white54)),
-          ]),
-        ),
-        SizedBox(
-          height: 250,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            itemCount: items.length,
-            itemBuilder: (context, i) {
-              final a = items[i];
-              return GestureDetector(
-                onTap: () => _open(a.url),
-                child: Container(
-                  width: 150,
-                  margin: const EdgeInsets.only(right: 12),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withValues(alpha: 0.06),
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(
-                        color: Colors.white.withValues(alpha: 0.08)),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ClipRRect(
-                        borderRadius: const BorderRadius.vertical(
-                            top: Radius.circular(16)),
-                        child: a.image.isEmpty
-                            ? Container(
-                                height: 180,
-                                color: const Color(0xFF2A2A3E),
-                                child: const Icon(Icons.movie, size: 40))
-                            : Image.network(a.image,
-                                height: 180,
-                                width: 150,
-                                fit: BoxFit.cover,
-                                errorBuilder: (c, e, s) => Container(
-                                    height: 180,
-                                    color: const Color(0xFF2A2A3E),
-                                    child: const Icon(Icons.broken_image))),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8),
-                        child: Text(a.title,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(
-                                fontWeight: FontWeight.w600)),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
-                        child: Row(children: [
-                          if (a.score > 0) ...[
-                            const Icon(Icons.star,
-                                size: 14, color: Colors.amber),
-                            Text(' ${a.score.toStringAsFixed(1)}',
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.bold)),
-                            const SizedBox(width: 8),
-                          ],
-                          if (a.year > 0)
-                            Text('${a.year}',
-                                style: const TextStyle(
-                                    color: Colors.white54)),
-                          const Spacer(),
-                          if (a.type.isNotEmpty)
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 6, vertical: 2),
-                              decoration: BoxDecoration(
-                                color: const Color(0xFFE50914),
-                                borderRadius: BorderRadius.circular(6),
-                              ),
-                              child: Text(a.type,
-                                  style: const TextStyle(
-                                      fontSize: 11,
-                                      fontWeight: FontWeight.bold)),
-                            ),
-                        ]),
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            },
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _categories(bool wide) {
-    final counts = <String, int>{};
-    for (final a in [..._top, ..._movies, ..._series]) {
-      for (final g in a.genres) {
-        counts[g] = (counts[g] ?? 0) + 1;
-      }
-    }
-    const cats = [
-      ('Action', Icons.flash_on),
-      ('Adventure', Icons.explore),
-      ('Comedy', Icons.emoji_emotions),
-      ('Drama', Icons.theater_comedy),
-      ('Fantasy', Icons.auto_awesome),
-      ('Romance', Icons.favorite),
-      ('Sci-Fi', Icons.rocket),
-      ('Horror', Icons.nightlight),
-    ];
+  Widget _showcaseSection(bool wide) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('Categories',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900)),
-          const SizedBox(height: 16),
+          const Text('Inside the app',
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.w900)),
+          const SizedBox(height: 6),
+          const Text(
+              'The catalog lives inside the Android app — here is what each screen does.',
+              style: TextStyle(color: Colors.white54, fontSize: 15)),
+          const SizedBox(height: 18),
           GridView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: wide ? 4 : 2,
+              crossAxisCount: wide ? 5 : 2,
               crossAxisSpacing: 14,
               mainAxisSpacing: 14,
-              childAspectRatio: 1.6,
+              childAspectRatio: 0.72,
             ),
-            itemCount: cats.length,
+            itemCount: _showcase.length,
             itemBuilder: (context, i) {
-              final c = cats[i];
-              final n = counts[c.$1];
-              return GestureDetector(
-                onTap: () => setState(() => _genre = c.$1),
-                child: Container(
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withValues(alpha: 0.06),
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(
-                        color: _genre == c.$1
-                            ? const Color(0xFFE50914)
-                            : Colors.white.withValues(alpha: 0.08),
-                        width: _genre == c.$1 ? 2 : 1),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(c.$2,
-                          color: const Color(0xFFE50914), size: 28),
-                      const SizedBox(height: 8),
-                      Text(c.$1,
-                          style: const TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold)),
-                      Text(n == null ? 'Tap to browse' : '$n titles',
-                          style:
-                              const TextStyle(color: Colors.white54)),
-                    ],
-                  ),
+              final s = _showcase[i];
+              return Container(
+                decoration: BoxDecoration(
+                  color: _card,
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(
+                      color: Colors.white.withValues(alpha: 0.08)),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ClipRRect(
+                      borderRadius: const BorderRadius.vertical(
+                          top: Radius.circular(16)),
+                      child: Image.asset(s.$1,
+                          height: 150, width: double.infinity,
+                          fit: BoxFit.cover),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(12),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(s.$2,
+                              style: const TextStyle(
+                                  fontSize: 17, fontWeight: FontWeight.bold)),
+                          const SizedBox(height: 4),
+                          Text(s.$3,
+                              style: const TextStyle(
+                                  color: Colors.white70, fontSize: 13)),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               );
             },
@@ -580,7 +363,7 @@ class _HomePageState extends State<HomePage> {
       padding: const EdgeInsets.all(28),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
-          colors: [Color(0xFFE50914), Color(0xFF7A0A12)],
+          colors: [_violet, _pink],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -589,11 +372,7 @@ class _HomePageState extends State<HomePage> {
       child: Flex(
         direction: wide ? Axis.horizontal : Axis.vertical,
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Image.asset('assets/icon/hanimo-icon.png',
-                width: 140, height: 140, fit: BoxFit.cover),
-          ),
+          const HanimoLogo(size: 140),
           const SizedBox(width: 24, height: 24),
           Expanded(
             child: Column(
@@ -610,11 +389,12 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(height: 12),
                 const Text(
                   'What is new in $appVersion:\n'
-                  '• Watch Together — watch in sync with a friend\n'
-                  '• Friends with Hanimo IDs, online & last-seen\n'
-                  '• Arabic UI with full RTL, glass Animefy-style design\n'
-                  '• New-episode alerts, trailers & recommendations\n'
-                  '• Real Chromecast, user dashboard, Jikan episodes',
+                  '• Rebuilt from scratch — clean architecture, nothing fails silently\n'
+                  '• Catalog, episodes and servers from Animeify — always fresh\n'
+                  '• New logo and new violet-to-pink design\n'
+                  '• In-app player: tap controls, ±10s, speed, fullscreen, resume\n'
+                  '• My List, Continue Watching, live search, Arabic UI\n'
+                  '• Admin: import top anime, manage the catalog, publish updates',
                   style: TextStyle(fontSize: 15, color: Colors.white),
                 ),
                 const SizedBox(height: 18),
@@ -644,7 +424,7 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(height: 12),
                 const Text(
                   'Install: open the APK from Downloads and allow "Install unknown apps" once. '
-                  'Then sign in with Google, open Admin, and tap "Import top anime (Jikan)".',
+                  'Then sign in with Google — the owner account gets Admin automatically.',
                   style: TextStyle(fontSize: 13, color: Colors.white70),
                 ),
               ],
@@ -655,18 +435,84 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  Widget _installSteps(bool wide) {
+    const steps = [
+      ('1', 'Download', 'Tap the download button above to get the APK.'),
+      ('2', 'Install', 'Open it from Downloads and allow installs from this source once.'),
+      ('3', 'Sign in', 'Google sign-in for your profile, My List and Hanimo ID.'),
+      ('4', 'Watch', 'Pick a title, choose an episode and a server, press play.'),
+    ];
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text('Install in 4 steps',
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.w900)),
+          const SizedBox(height: 16),
+          GridView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: wide ? 4 : 2,
+              crossAxisSpacing: 14,
+              mainAxisSpacing: 14,
+              childAspectRatio: 1.4,
+            ),
+            itemCount: steps.length,
+            itemBuilder: (context, i) => Container(
+              padding: const EdgeInsets.all(18),
+              decoration: BoxDecoration(
+                color: _card,
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(
+                    color: Colors.white.withValues(alpha: 0.08)),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    width: 34,
+                    height: 34,
+                    decoration: const BoxDecoration(
+                      gradient:
+                          LinearGradient(colors: [_violet, _pink]),
+                      shape: BoxShape.circle,
+                    ),
+                    alignment: Alignment.center,
+                    child: Text(steps[i].$1,
+                        style: const TextStyle(
+                            fontWeight: FontWeight.w900, fontSize: 16)),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(steps[i].$2,
+                      style: const TextStyle(
+                          fontSize: 17, fontWeight: FontWeight.bold)),
+                  const SizedBox(height: 4),
+                  Text(steps[i].$3,
+                      style: const TextStyle(
+                          color: Colors.white70, fontSize: 13)),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _features(bool wide) {
     const feats = [
-      (Icons.group, 'Watch Together',
-          'Start a party, share the code, and playback stays in sync with your friends.'),
-      (Icons.people, 'Friends by Hanimo ID',
-          'Every user gets an ID like HNM-K7X2P9. Add friends, see who is online, chat by ID.'),
+      (Icons.play_circle, 'Watch in the app',
+          'Episodes list their servers — MediaFire HD, SolidFiles and Drive play in the built-in player.'),
+      (Icons.autorenew, 'Always fresh',
+          'Home, trending, latest episodes and new seasons come straight from the server on every open.'),
+      (Icons.bookmark, 'My List & resume',
+          'Save favourites and continue watching exactly where you stopped.'),
       (Icons.translate, 'Arabic UI',
           'Full English / العربية switch with right-to-left layout.'),
-      (Icons.cast, 'Chromecast',
-          'Cast any stream to your TV straight from the player.'),
-      (Icons.notifications_active, 'New-episode alerts',
-          'Your favourites are checked — get told when a new episode drops.'),
+      (Icons.admin_panel_settings, 'Owner Admin',
+          'Import top anime, edit the catalog and publish update notices from inside the app.'),
       (Icons.lock, 'Private by Design',
           'Your profile and favourites are yours only. Messages are seen by sender and recipient only.'),
     ];
@@ -691,14 +537,15 @@ class _HomePageState extends State<HomePage> {
             itemBuilder: (context, i) => Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Colors.white.withValues(alpha: 0.06),
+                color: _card,
                 borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                    color: Colors.white.withValues(alpha: 0.08)),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(feats[i].$1,
-                      size: 32, color: const Color(0xFFE50914)),
+                  Icon(feats[i].$1, size: 32, color: _pink),
                   const SizedBox(height: 10),
                   Text(feats[i].$2,
                       style: const TextStyle(
@@ -719,9 +566,8 @@ class _HomePageState extends State<HomePage> {
     return const Padding(
       padding: EdgeInsets.symmetric(horizontal: 24, vertical: 32),
       child: Text(
-        'Hanimo is a personal app. Content comes from links and playlists '
-        'the owner adds — the app itself bundles no streams. '
-        'Catalog data on this page comes from MyAnimeList via Jikan. '
+        'Hanimo is a personal app. The catalog inside the Android app comes '
+        'from Animeify\u2019s server. The app itself bundles no streams. '
         'Made with Flutter.',
         textAlign: TextAlign.center,
         style: TextStyle(color: Colors.white54),
