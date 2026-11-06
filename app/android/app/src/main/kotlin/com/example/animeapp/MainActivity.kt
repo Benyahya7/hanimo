@@ -1,7 +1,5 @@
 package com.example.animeapp
 
-import io.flutter.embedding.android.FlutterFragmentActivity
+import io.flutter.embedding.android.FlutterActivity
 
-// FlutterFragmentActivity (not FlutterActivity): the Google Cast device
-// picker is a Fragment and needs a FragmentActivity to render.
-class MainActivity : FlutterFragmentActivity()
+class MainActivity : FlutterActivity()

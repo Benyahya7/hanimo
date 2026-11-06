@@ -1,0 +1,928 @@
+{
+  "@@locale": "en",
+  "home": "Home",
+  "browse": "Browse",
+  "search": "Search",
+  "favourites": "Favourites",
+  "profile": "Profile",
+  "admin": "Admin",
+  "friends": "Friends",
+  "messages": "Messages",
+  "updates": "Updates",
+  "settings": "Settings",
+  "myAccount": "My account",
+  "animeList": "Anime list",
+  "latestEpisodes": "Latest episodes",
+  "watchHistory": "Watch history",
+  "currentlyWatching": "Currently watching",
+  "completed": "Completed",
+  "watchLater": "Watch Later",
+  "myFavourites": "My Favourites",
+  "continueWatching": "Continue Watching",
+  "latestUpdates": "Latest Updates",
+  "airingToday": "Airing Today",
+  "fall2026": "Fall 2026",
+  "latestNews": "Latest Anime News",
+  "trendingNow": "Trending Now",
+  "signOut": "Sign out",
+  "signIn": "Sign in with Google",
+  "officialWebsite": "Official website",
+  "contactUs": "Contact us",
+  "privacyPolicy": "Privacy policy",
+  "privacyPolicyBody": "Hanimo stores your favourites and watch progress only on your device. Your profile is visible only to you, and messages are readable only by their sender and recipient. The owner never shares your info with other users.",
+  "watching": "Watching",
+  "history": "History",
+  "episodes": "Episodes",
+  "watched": "Watched",
+  "dashboard": "Dashboard",
+  "viewAll": "View all ›",
+  "searchTitles": "Search titles…",
+  "importTab": "Import",
+  "pressBackAgainToExit": "Press back again to exit",
+  "newUpdateAvailable": "New update available — Hanimo {version} Tap to update",
+  "@newUpdateAvailable": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "newUpdateAvailableNoVersion": "New update available — Tap to update",
+  "update": "Update",
+  "later": "Later",
+  "guest": "Guest",
+  "language": "Language / اللغة",
+  "newBadge": "NEW",
+  "play": "Play",
+  "myList": "My List",
+  "hanimoOriginals": "Hanimo Originals",
+  "hanimoOriginalsSub": "Your anime universe, in one app",
+  "cyberCity": "Cyber City",
+  "cyberCitySub": "Neon nights, high stakes, non-stop action",
+  "skyKingdom": "Sky Kingdom",
+  "skyKingdomSub": "Dragons, castles and an epic quest",
+  "topSeries": "Top Series",
+  "topSeriesSub": "Series everyone is watching right now",
+  "movieNight": "Movie Night",
+  "movieNightSub": "Big-screen anime, cozy at home",
+  "newEpisodes": "New episodes!",
+  "nowEpisodes": "{title} — now {newCount} episodes",
+  "@nowEpisodes": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "newCount": {
+        "type": "int"
+      }
+    }
+  },
+  "wasEpisodes": "Was {oldCount} episodes",
+  "@wasEpisodes": {
+    "placeholders": {
+      "oldCount": {
+        "type": "int"
+      }
+    }
+  },
+  "genreAll": "All",
+  "genreAction": "Action",
+  "genreAdventure": "Adventure",
+  "genreComedy": "Comedy",
+  "genreDrama": "Drama",
+  "genreFantasy": "Fantasy",
+  "noTitlesInGenre": "No titles in this genre yet.",
+  "imported": "Imported",
+  "noDescriptionYet": "No description yet.",
+  "playEpisode1": "Play Ep 1",
+  "watchTrailer": "Watch trailer",
+  "noLinkYet": "No link yet.",
+  "noLinkYetShort": "No link yet",
+  "episodesTitle": "Episodes",
+  "episodesTitleCount": "Episodes ({count})",
+  "@episodesTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "episodeListLoadFailed": "Episode list could not be loaded: {error}",
+  "@episodeListLoadFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "noEpisodesYet": "No episodes yet. Admin can add episode links, or set a MyAnimeList ID on the item to load its episode list.",
+  "notFoundTitle": "Not found",
+  "notFoundMessage": "This anime could not be found.",
+  "episodeNumber": "Episode {number}",
+  "@episodeNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "moreLikeThis": "More like this",
+  "recommendedByMal": "Recommended by AniList",
+  "couldNotPlayStream": "Could not play this stream: {error}",
+  "@couldNotPlayStream": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "castFailed": "Cast failed: {error}",
+  "@castFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "signInToStartParty": "Sign in to start a watch party.",
+  "couldNotStartParty": "Could not start party: {error}",
+  "@couldNotStartParty": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "watchPartyEnded": "Watch party ended.",
+  "invitedFriend": "Invited {name}",
+  "@invitedFriend": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "inviteFailed": "Invite failed: {error}",
+  "@inviteFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "watchTogether": "Watch Together",
+  "watch": "Watch",
+  "findingStreams": "Finding streams…",
+  "openAddons": "Open add-ons",
+  "watchTogetherParty": "Watch Together — party {code}",
+  "@watchTogetherParty": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "partyHostInfo": "Share this code with a friend — they join from Friends → Join a watch party. Your playback stays in sync with theirs.",
+  "partyGuestInfo": "You are watching in sync with the host.",
+  "partyCode": "Code: {code}",
+  "@partyCode": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "inviteAFriend": "Invite a friend:",
+  "invite": "Invite",
+  "close": "Close",
+  "endParty": "End party",
+  "leaveParty": "Leave party",
+  "watchOnTv": "Watch on TV",
+  "castDialogBody": "Pick your Chromecast / Google TV below. Your phone and TV must be on the same Wi-Fi. The TV loads the stream itself, so the link must be reachable from the TV.",
+  "castToChromecast": "Cast to Chromecast",
+  "stopCasting": "Stop casting",
+  "shareLinkToTv": "Share link to TV",
+  "share": "Share",
+  "openInExternalPlayer": "Open in external player",
+  "copyLink": "Copy link",
+  "torrentLink": "Torrent link",
+  "torrentBody": "Hanimo streams torrents inside the app when peers are available. If playback fails here, open this link in your torrent app instead.",
+  "openInTorrentApp": "Open in torrent app",
+  "playInApp": "Play in app",
+  "retry": "Retry",
+  "torrentConnecting": "Connecting to peers…",
+  "torrentBuffering": "Buffering torrent stream…",
+  "torrentNoPeers": "No peers found — try another stream",
+  "torrentFailed": "Torrent failed to start",
+  "torrentNoVideo": "No playable video file in this torrent",
+  "torrentPeers": "{count} peers",
+  "@torrentPeers": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "torrentSpeed": "Speed: {speed}",
+  "@torrentSpeed": {
+    "placeholders": {
+      "speed": {
+        "type": "String"
+      }
+    }
+  },
+  "noLinkForEpisode": "No link yet for this episode. Admin can add a link for it.",
+  "webLinkNotVideo": "This looks like a web link, not a direct video file.",
+  "openInBrowser": "Open in browser",
+  "subtitles": "Subtitles",
+  "fullscreen": "Fullscreen",
+  "partyInviteMessage": "🎬 {name} invited you to watch {title} together! Party code: {code} — open Friends → Join a watch party and enter the code.",
+  "@partyInviteMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "title": {
+        "type": "String"
+      },
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "episodeTitle": "{title} — Ep {episode}",
+  "@episodeTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "episode": {
+        "type": "int"
+      }
+    }
+  },
+  "upToDate": "Up to date",
+  "updatesCount": "{count} update(s)",
+  "@updatesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "myHanimoId": "My Hanimo ID: {id}",
+  "@myHanimoId": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "copiedHanimoId": "Copied your Hanimo ID: {id}",
+  "@copiedHanimoId": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "profileInfo": "Your profile is created automatically when you sign in — the same Google account works on any device. Without signing in, your favourites and watch progress stay on this phone only.",
+  "noFavouritesYet": "No favourites yet. Tap the heart on any item.",
+  "signInFailed": "Sign-in failed: {error}",
+  "@signInFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "addFriendLabel": "Add friend by Hanimo ID (HNM-XXXXXX)",
+  "add": "Add",
+  "joinWatchParty": "Join a watch party",
+  "partyCodeLabel": "Party code (6 letters)",
+  "join": "Join",
+  "yourFriends": "Your friends ({count})",
+  "@yourFriends": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noFriendsYet": "No friends yet. Ask a friend for their Hanimo ID — it is on their dashboard — and add them here.",
+  "onlineNow": "Online now",
+  "lastSeenUnknown": "Last seen unknown",
+  "lastSeenToday": "Last seen today {time}",
+  "@lastSeenToday": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "lastSeenYesterday": "Last seen yesterday {time}",
+  "@lastSeenYesterday": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "lastSeenDate": "Last seen {date} {time}",
+  "@lastSeenDate": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "chat": "Chat",
+  "remove": "Remove",
+  "signInToSeeMessages": "Sign in to see your messages.",
+  "sendMessage": "Send a message",
+  "friendHanimoIdLabel": "Friend''s Hanimo ID (HNM-XXXXXX)",
+  "find": "Find",
+  "messageLabel": "Message",
+  "send": "Send",
+  "inboxTitle": "Inbox — messages sent to you",
+  "sentTitle": "Sent",
+  "noMessagesYet": "No messages yet.",
+  "nothingSentYet": "Nothing sent yet.",
+  "inboxLoadFailed": "Inbox could not load: {error}",
+  "@inboxLoadFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "sentLoadFailed": "Sent could not load: {error}",
+  "@sentLoadFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "toRecipient": "To: {name} ({id})",
+  "@toRecipient": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "replyTo": "Reply to {name}",
+  "@replyTo": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "yourReply": "Your reply",
+  "cancel": "Cancel",
+  "save": "Save",
+  "signInFirst": "Sign in first.",
+  "enterHanimoId": "Enter a Hanimo ID.",
+  "noUserWithId": "No user with ID {id}.",
+  "@noUserWithId": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "ownId": "That is your own ID.",
+  "addedFriend": "Added {name} as a friend.",
+  "@addedFriend": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "couldNotAddFriend": "Could not add friend: {error}",
+  "@couldNotAddFriend": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "chattingWith": "Chatting with {name} ({id}).",
+  "@chattingWith": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "lookupFailed": "Lookup failed: {error}",
+  "@lookupFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "enterIdTapFind": "Enter a friend''s Hanimo ID and tap Find first.",
+  "writeMessageFirst": "Write a message first.",
+  "messageSentTo": "Message sent to {name}.",
+  "@messageSentTo": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "sendFailed": "Send failed: {error}",
+  "@sendFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "noPartyWithCode": "No party with code {code}.",
+  "@noPartyWithCode": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "partyTitleNotInCatalog": "Party found, but that title is not in your catalog.",
+  "couldNotJoinParty": "Could not join party: {error}",
+  "@couldNotJoinParty": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "signedInAs": "Signed in as {email}",
+  "@signedInAs": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "adminCheckSignIn": "Sign in to check admin status.",
+  "notSignedIn": "Not signed in.",
+  "adminYes": "You are an admin. You can add, edit and delete categories and items.",
+  "adminNotYet": "You are signed in, but you are not an admin yet.",
+  "adminYesShort": "You are an admin.",
+  "adminCheckFailed": "Admin check failed. Try again.",
+  "googleSignInFailed": "Google sign-in failed: {error}",
+  "@googleSignInFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "signedOut": "Signed out.",
+  "signInAdminToEdit": "Sign in with an admin account to edit.",
+  "addCategory": "Add category",
+  "editCategory": "Edit category",
+  "addItem": "Add item",
+  "editItem": "Edit item",
+  "importTopAnime": "Import top anime",
+  "categories": "Categories",
+  "items": "Items",
+  "banners": "Banners",
+  "addons": "Add-ons",
+  "latestBuild": "Latest build",
+  "carouselTitle": "Carousel — Home banners",
+  "carouselBody": "This is what the Home carousel shows. Add, edit, delete or change the order number — it updates for everyone with no new APK. Image can be a web URL, or asset:hero.webp, asset:series.webp, asset:movie.webp, asset:cyberpunk.webp or asset:fantasy.webp for the built-in banners. If you delete all banners, Home falls back to the built-in ones.",
+  "addBanner": "Add banner",
+  "editBanner": "Edit banner",
+  "bannerImageLabel": "Image URL, or asset:hero.webp",
+  "titleLabel": "Title",
+  "subtitleLabel": "Subtitle",
+  "bannerCategoryLabel": "Opens category ID (optional)",
+  "orderLabel": "Order",
+  "bannerSaved": "Banner saved. Home now shows it.",
+  "saveFailed": "Save failed: {error}",
+  "@saveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "addonsTitle": "Add-ons (Stremio-style)",
+  "addonsBody": "Add a manifest URL (…/manifest.json). Catalog add-ons (like Cinemeta) give browseable movie & series lists; stream add-ons (like Torrentio) supply the streams for those titles — torrent streams now play inside the app. Only add-ons you trust.",
+  "browseAddons": "Browse add-ons",
+  "test": "Test",
+  "addAddon": "Add add-on",
+  "editAddon": "Edit add-on",
+  "nameLabel": "Name",
+  "manifestUrlLabel": "Manifest URL (…/manifest.json)",
+  "descriptionOptional": "Description (optional)",
+  "addonSaved": "Add-on saved.",
+  "testingAddon": "Testing {name}…",
+  "@testingAddon": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "addonTestResult": "{name} v{version} — {count} catalog(s){streams}{note}: {names}",
+  "@addonTestResult": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      },
+      "streams": {
+        "type": "String"
+      },
+      "note": {
+        "type": "String"
+      },
+      "names": {
+        "type": "String"
+      }
+    }
+  },
+  "addonStreamsSuffix": " + streams",
+  "addonStreamsOnlyNote": " (streams only — needs a catalog add-on like Cinemeta to browse)",
+  "addonTestFailed": "Add-on test failed: {error}",
+  "@addonTestFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importingTopAnime": "Importing top anime…",
+  "importedTopTitles": "Imported {count} titles. Add links per item or episode in Admin.",
+  "@importedTopTitles": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailed": "Import failed: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "addEpisodeLink": "Add episode link — {title}",
+  "@addEpisodeLink": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "addEpisodeLinkTooltip": "Add episode link",
+  "episodeNumberLabel": "Episode number",
+  "episodeTitleOptional": "Episode title (optional)",
+  "episodeLinkLabel": "Episode link / stream URL",
+  "subtitleUrlOptional": "Subtitle URL (.vtt / .srt, optional)",
+  "episodeNumberMin": "Episode number must be 1 or higher",
+  "episodeLinkSaved": "Episode {number} link saved for {title}.",
+  "@episodeLinkSaved": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteWhat": "Delete {what}?",
+  "@deleteWhat": {
+    "placeholders": {
+      "what": {
+        "type": "String"
+      }
+    }
+  },
+  "selectedChannels": "selected channels",
+  "allIptvChannels": "all IPTV channels",
+  "deleteIptvWarning": "This deletes {count} IPTV channel(s) permanently. This cannot be undone.",
+  "@deleteIptvWarning": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "delete": "Delete",
+  "deletedIptv": "Deleted {count} IPTV channel(s).",
+  "@deletedIptv": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "deleteFailed": "Delete failed: {error}",
+  "@deleteFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "coverImageOptional": "Cover image URL (optional)",
+  "descriptionLabel": "Description",
+  "categorySaved": "Category saved.",
+  "categoryIdLabel": "Category ID (e.g. anime-series)",
+  "posterImageOptional": "Poster image URL (optional)",
+  "linkLabel": "Link / stream URL — or a magnet: / .torrent link",
+  "typeLabel": "Type: series / movie / live",
+  "malIdLabel": "MyAnimeList ID (loads episodes, optional)",
+  "anilistIdLabel": "AniList ID (loads episodes, optional)",
+  "scoreLabel": "Score (e.g. 8.7)",
+  "yearLabel": "Year",
+  "genresLabel": "Genres, comma separated",
+  "itemSaved": "Item saved.",
+  "iptvTitle": "IPTV / Live channels",
+  "iptvBody": "All live channels: those saved in Firestore and those imported on this device only. Tick channels to delete them, or use Select all.",
+  "selectAll": "Select all",
+  "channelCount": "{count} channel(s)",
+  "@channelCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "deleteSelected": "Delete selected ({count})",
+  "@deleteSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "deleteAllIptv": "Delete all IPTV",
+  "noIptvChannels": "No IPTV channels right now.",
+  "savedInFirestore": "Saved in Firestore",
+  "importedOnDevice": "Imported on this device only",
+  "appUpdateTitle": "App update",
+  "appUpdateBody": "Set a newer build number than the installed app to show the update message to all users. The banner appears with an Update button that opens the download link.",
+  "latestBuildLabel": "Latest build number (e.g. 6)",
+  "versionNameLabel": "Version name (e.g. 1.0.5)",
+  "downloadUrlLabel": "Download URL (APK link)",
+  "notesOptional": "Notes (optional)",
+  "publishUpdate": "Publish update",
+  "publishFailed": "Publish failed: {error}",
+  "@publishFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "updatePublished": "Update published — it is in the Updates inbox (bell) and the banner, and users with the app open will get a system notification to tap and update. To also reach phones with the app closed, send one message from Firebase Console > Cloud Messaging to topic app_updates with the download link in the data (button below) — or approve the Blaze plan and the app can send it automatically on every publish.",
+  "openFcm": "Open Firebase Cloud Messaging",
+  "noAddonsEnabled": "No add-ons enabled. Add one in Admin first.",
+  "installingCinemeta": "Installing Cinemeta catalog…",
+  "cinemetaInstalledMsg": "Cinemeta installed — tap it above to browse movies & series. Torrentio will supply the streams.",
+  "installFailed": "Install failed: {error}",
+  "@installFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "loadingAddon": "Loading {name}…",
+  "@loadingAddon": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "addonStreamsOnly": "This add-on provides streams only — no catalog of its own. That is normal for Torrentio: in Stremio the catalog comes from Cinemeta. Install the Cinemeta catalog below and {name} will supply the streams.",
+  "@addonStreamsOnly": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "addonNoCatalogs": "This add-on has no catalogs.",
+  "failedWithError": "Failed: {error}",
+  "@failedWithError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "installCinemetaCatalog": "Install Cinemeta catalog",
+  "loading": "Loading…",
+  "noItemsInCatalog": "No items in this catalog.",
+  "searchCatalogHint": "Search this catalog…",
+  "noCatalogSearchResults": "No titles match your search.",
+  "loadingEpisodes": "Loading episodes…",
+  "noEpisodeList": "No episode list for this series.",
+  "couldNotLoadEpisodes": "Could not load episodes: {error}",
+  "@couldNotLoadEpisodes": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "openStreamsWholeSeries": "Open streams for the whole series",
+  "seasonEpisode": "S{season}E{episode} — {name}",
+  "seasonNumber": "Season {season}",
+  "@seasonEpisode": {
+    "placeholders": {
+      "season": {
+        "type": "int"
+      },
+      "episode": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "loadingStreams": "Loading streams…",
+  "noStreamsFound": "No streams found for this title. Make sure a stream add-on (like Torrentio) is enabled, or try another title.",
+  "streamNumber": "Stream {number}",
+  "@streamNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "torrentVia": "Torrent via {source}",
+  "@torrentVia": {
+    "placeholders": {
+      "source": {
+        "type": "String"
+      }
+    }
+  },
+  "openTorrent": "Open torrent",
+  "playlistImportTitle": "Playlist import (IPTV-style)",
+  "playlistImportBody": "Paste a playlist URL you already have, or paste M3U text. Imported channels stay local unless you are an admin and choose Save to Firestore. Nothing is bundled in the app.",
+  "m3uUrlLabel": "M3U URL",
+  "fetchPlaylist": "Fetch playlist",
+  "pasteM3uLabel": "Or paste M3U text here",
+  "parseText": "Parse text",
+  "saveToFirestore": "Save to Firestore (admin only)",
+  "clear": "Clear",
+  "fetching": "Fetching…",
+  "importedChannels": "Imported {count} channels (local only).",
+  "@importedChannels": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "fetchFailed": "Fetch failed: {error}",
+  "@fetchFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "notAdminFirestore": "Not an admin — cannot write to Firestore. Sign in with an admin account.",
+  "savedImported": "Saved {count} imported items to Firestore.",
+  "@savedImported": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importedCount": "Imported: {count} channels",
+  "@importedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "andMore": "…and {count} more",
+  "@andMore": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noUpdatesYet": "No updates yet. When a new version is published, it will appear here — tap it to download.",
+  "hanimoUpdate": "Hanimo update",
+  "hanimoVersion": "Hanimo {version}",
+  "@hanimoVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "newVersionAvailable": "A new version is available.",
+  "download": "Download",
+  "notificationsOff": "Notifications are off — you will not get update alerts on your phone.",
+  "enable": "Enable",
+  "categorySubtitle": "{count} items • {description}",
+  "@categorySubtitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "description": {
+        "type": "String"
+      }
+    }
+  },
+  "noItemsInCategory": "No items in this category yet.",
+  "episodeBadge": "Ep {number}",
+  "@episodeBadge": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "updateNotificationTitle": "Hanimo {version} is out",
+  "@updateNotificationTitle": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "updateNotificationTitleNoVersion": "Hanimo update is out",
+  "tapToUpdate": "Tap to update the app.",
+  "servers": "Servers",
+  "openExternally": "Open externally",
+  "linkResolveFailed": "Couldn’t get a playable link — try another server.",
+  "relatedTitles": "Related titles",
+  "deletedItem": "Deleted.",
+  "trending": "Trending now",
+  "thisSeason": "This season",
+  "signInWithGoogle": "Sign in with Google",
+  "all": "All",
+  "movies": "Movies",
+  "series": "Series",
+  "loadMore": "Load more",
+  "noResults": "No results",
+  "myListTitle": "My List",
+  "searchHint": "Search anime…",
+  "genres": "Genres",
+  "action": "Action",
+  "adventure": "Adventure",
+  "comedy": "Comedy",
+  "drama": "Drama",
+  "fantasy": "Fantasy",
+  "romance": "Romance",
+  "sciFi": "Sci-Fi",
+  "edit": "Edit",
+  "title": "Title",
+  "description": "Description",
+  "imageUrl": "Image URL",
+  "category": "Category",
+  "versionName": "Version name",
+  "downloadUrl": "Download URL",
+  "notes": "Notes",
+  "enableNotifications": "Enable notifications",
+  "notificationsDenied": "Notifications are off. Enable them to get update alerts.",
+  "pressBackAgain": "Press back again to exit",
+  "episodesCount": "{count} episodes",
+  "score": "Score",
+  "year": "Year",
+  "aired": "Aired",
+  "status": "Status",
+  "airing": "Airing",
+  "airedStatus": "Aired",
+  "unknown": "Unknown"
+}

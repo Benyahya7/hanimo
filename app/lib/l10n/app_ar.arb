@@ -1,0 +1,928 @@
+{
+  "@@locale": "ar",
+  "home": "الرئيسية",
+  "browse": "تصفّح",
+  "search": "بحث",
+  "favourites": "المفضلة",
+  "profile": "الملف الشخصي",
+  "admin": "المسؤول",
+  "friends": "الأصدقاء",
+  "messages": "الرسائل",
+  "updates": "التحديثات",
+  "settings": "الإعدادات",
+  "myAccount": "حسابي",
+  "animeList": "قائمة الأنمي",
+  "latestEpisodes": "أحدث الحلقات",
+  "watchHistory": "سجل المشاهدة",
+  "currentlyWatching": "أشاهد حالياً",
+  "completed": "مكتملة",
+  "watchLater": "المشاهدة لاحقاً",
+  "myFavourites": "مفضلاتي",
+  "continueWatching": "متابعة المشاهدة",
+  "latestUpdates": "آخر التحديثات",
+  "airingToday": "يُعرض اليوم",
+  "fall2026": "خريف 2026",
+  "latestNews": "آخر أخبار الأنمي",
+  "trendingNow": "الرائج الآن",
+  "signOut": "تسجيل الخروج",
+  "signIn": "تسجيل الدخول عبر Google",
+  "officialWebsite": "الموقع الرسمي",
+  "contactUs": "تواصل معنا",
+  "privacyPolicy": "سياسة الخصوصية",
+  "privacyPolicyBody": "يخزّن Hanimo مفضلاتك وتقدّم مشاهدتك على جهازك فقط. ملفك الشخصي مرئي لك وحدك، والرسائل لا يقرؤها إلا مرسلها ومستلمها. ولا يشارك المالك معلوماتك مع أي مستخدم آخر.",
+  "watching": "أشاهد",
+  "history": "السجل",
+  "episodes": "الحلقات",
+  "watched": "شوهد",
+  "dashboard": "لوحة التحكم",
+  "viewAll": "عرض الكل ‹",
+  "searchTitles": "ابحث عن عنوان…",
+  "importTab": "استيراد",
+  "pressBackAgainToExit": "اضغط زر الرجوع مرة أخرى للخروج",
+  "newUpdateAvailable": "تحديث جديد متاح — Hanimo {version} اضغط للتحديث",
+  "@newUpdateAvailable": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "newUpdateAvailableNoVersion": "تحديث جديد متاح — اضغط للتحديث",
+  "update": "تحديث",
+  "later": "لاحقاً",
+  "guest": "ضيف",
+  "language": "اللغة / Language",
+  "newBadge": "جديد",
+  "play": "تشغيل",
+  "myList": "قائمتي",
+  "hanimoOriginals": "أعمال Hanimo الأصلية",
+  "hanimoOriginalsSub": "عالم الأنمي الخاص بك، في تطبيق واحد",
+  "cyberCity": "مدينة سايبر",
+  "cyberCitySub": "ليالٍ مضيئة بالنيون، رهانات عالية، وأكشن بلا توقف",
+  "skyKingdom": "مملكة السماء",
+  "skyKingdomSub": "تنانين وقلاع ومغامرة ملحمية",
+  "topSeries": "أفضل المسلسلات",
+  "topSeriesSub": "مسلسلات يشاهدها الجميع الآن",
+  "movieNight": "ليلة الأفلام",
+  "movieNightSub": "أنمي بشاشة كبيرة، وأجواء مريحة في البيت",
+  "newEpisodes": "حلقات جديدة!",
+  "nowEpisodes": "{title} — أصبحت {newCount} حلقة",
+  "@nowEpisodes": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "newCount": {
+        "type": "int"
+      }
+    }
+  },
+  "wasEpisodes": "كانت {oldCount} حلقة",
+  "@wasEpisodes": {
+    "placeholders": {
+      "oldCount": {
+        "type": "int"
+      }
+    }
+  },
+  "genreAll": "الكل",
+  "genreAction": "أكشن",
+  "genreAdventure": "مغامرات",
+  "genreComedy": "كوميديا",
+  "genreDrama": "دراما",
+  "genreFantasy": "فانتازيا",
+  "noTitlesInGenre": "لا توجد عناوين في هذا النوع بعد.",
+  "imported": "مستوردة",
+  "noDescriptionYet": "لا يوجد وصف بعد.",
+  "playEpisode1": "تشغيل الحلقة 1",
+  "watchTrailer": "مشاهدة الإعلان",
+  "noLinkYet": "لا يوجد رابط بعد.",
+  "noLinkYetShort": "لا يوجد رابط بعد",
+  "episodesTitle": "الحلقات",
+  "episodesTitleCount": "الحلقات ({count})",
+  "@episodesTitleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "episodeListLoadFailed": "تعذّر تحميل قائمة الحلقات: {error}",
+  "@episodeListLoadFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "noEpisodesYet": "لا توجد حلقات بعد. يمكن للمسؤول إضافة روابط الحلقات، أو تعيين معرّف MyAnimeList للعنصر لتحميل قائمة حلقاته.",
+  "notFoundTitle": "غير موجود",
+  "notFoundMessage": "لم يتم العثور على هذا الأنمي.",
+  "episodeNumber": "الحلقة {number}",
+  "@episodeNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "moreLikeThis": "المزيد مثل هذا",
+  "recommendedByMal": "مقترحات AniList",
+  "couldNotPlayStream": "تعذّر تشغيل هذا البث: {error}",
+  "@couldNotPlayStream": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "castFailed": "فشل الإرسال إلى التلفاز: {error}",
+  "@castFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "signInToStartParty": "سجّل الدخول لبدء مشاهدة جماعية.",
+  "couldNotStartParty": "تعذّر بدء المشاهدة الجماعية: {error}",
+  "@couldNotStartParty": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "watchPartyEnded": "انتهت المشاهدة الجماعية.",
+  "invitedFriend": "تمت دعوة {name}",
+  "@invitedFriend": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "inviteFailed": "فشلت الدعوة: {error}",
+  "@inviteFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "watchTogether": "مشاهدة جماعية",
+  "watch": "مشاهدة",
+  "findingStreams": "جارٍ البحث عن روابط المشاهدة…",
+  "openAddons": "فتح الإضافات",
+  "watchTogetherParty": "مشاهدة جماعية — المجموعة {code}",
+  "@watchTogetherParty": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "partyHostInfo": "شارك هذا الرمز مع صديق — ينضم من الأصدقاء ← الانضمام إلى مشاهدة جماعية. وسيبقى التشغيل متزامناً بينكما.",
+  "partyGuestInfo": "أنت تشاهد بالتزامن مع المضيف.",
+  "partyCode": "الرمز: {code}",
+  "@partyCode": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "inviteAFriend": "ادعُ صديقاً:",
+  "invite": "دعوة",
+  "close": "إغلاق",
+  "endParty": "إنهاء المجموعة",
+  "leaveParty": "مغادرة المجموعة",
+  "watchOnTv": "مشاهدة على التلفاز",
+  "castDialogBody": "اختر جهاز Chromecast / Google TV أدناه. يجب أن يكون هاتفك والتلفاز على شبكة Wi-Fi نفسها. يقوم التلفاز بتحميل البث بنفسه، لذا يجب أن يكون الرابط متاحاً من التلفاز.",
+  "castToChromecast": "إرسال إلى Chromecast",
+  "stopCasting": "إيقاف الإرسال",
+  "shareLinkToTv": "مشاركة الرابط مع التلفاز",
+  "share": "مشاركة",
+  "openInExternalPlayer": "فتح في مشغّل خارجي",
+  "copyLink": "نسخ الرابط",
+  "torrentLink": "رابط تورنت",
+  "torrentBody": "يقوم Hanimo ببث ملفات التورنت داخل التطبيق عند توفر الأقران. إذا فشل التشغيل هنا، افتح هذا الرابط في تطبيق التورنت بدلاً من ذلك.",
+  "openInTorrentApp": "فتح في تطبيق التورنت",
+  "playInApp": "تشغيل في التطبيق",
+  "retry": "إعادة المحاولة",
+  "torrentConnecting": "جارٍ الاتصال بالأقران…",
+  "torrentBuffering": "جارٍ تجهيز بث التورنت…",
+  "torrentNoPeers": "لم يتم العثور على أقران — جرّب بثاً آخر",
+  "torrentFailed": "تعذّر بدء التورنت",
+  "torrentNoVideo": "لا يوجد ملف فيديو قابل للتشغيل في هذا التورنت",
+  "torrentPeers": "{count} أقران",
+  "@torrentPeers": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "torrentSpeed": "السرعة: {speed}",
+  "@torrentSpeed": {
+    "placeholders": {
+      "speed": {
+        "type": "String"
+      }
+    }
+  },
+  "noLinkForEpisode": "لا يوجد رابط بعد لهذه الحلقة. يمكن للمسؤول إضافة رابط لها.",
+  "webLinkNotVideo": "يبدو هذا رابط ويب، وليس ملف فيديو مباشر.",
+  "openInBrowser": "فتح في المتصفح",
+  "subtitles": "الترجمة",
+  "fullscreen": "ملء الشاشة",
+  "partyInviteMessage": "🎬 دعاك {name} لمشاهدة {title} معاً! رمز المجموعة: {code} — افتح الأصدقاء ← الانضمام إلى مشاهدة جماعية وأدخل الرمز.",
+  "@partyInviteMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "title": {
+        "type": "String"
+      },
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "episodeTitle": "{title} — الحلقة {episode}",
+  "@episodeTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "episode": {
+        "type": "int"
+      }
+    }
+  },
+  "upToDate": "محدَّث",
+  "updatesCount": "{count} تحديث(ات)",
+  "@updatesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "myHanimoId": "معرّف Hanimo الخاص بي: {id}",
+  "@myHanimoId": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "copiedHanimoId": "تم نسخ معرّف Hanimo الخاص بك: {id}",
+  "@copiedHanimoId": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "profileInfo": "يتم إنشاء ملفك الشخصي تلقائياً عند تسجيل الدخول — ويعمل حساب Google نفسه على أي جهاز. وبدون تسجيل الدخول، تبقى مفضلاتك وتقدّم مشاهدتك على هذا الهاتف فقط.",
+  "noFavouritesYet": "لا توجد مفضلات بعد. اضغط على القلب في أي عنصر.",
+  "signInFailed": "فشل تسجيل الدخول: {error}",
+  "@signInFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "addFriendLabel": "أضف صديقاً عبر معرّف Hanimo (HNM-XXXXXX)",
+  "add": "إضافة",
+  "joinWatchParty": "الانضمام إلى مشاهدة جماعية",
+  "partyCodeLabel": "رمز المجموعة (6 أحرف)",
+  "join": "انضمام",
+  "yourFriends": "أصدقاؤك ({count})",
+  "@yourFriends": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noFriendsYet": "لا أصدقاء بعد. اطلب من صديق معرّف Hanimo الخاص به — تجده في لوحة التحكم — وأضِفه هنا.",
+  "onlineNow": "متصل الآن",
+  "lastSeenUnknown": "آخر ظهور غير معروف",
+  "lastSeenToday": "آخر ظهور اليوم {time}",
+  "@lastSeenToday": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "lastSeenYesterday": "آخر ظهور أمس {time}",
+  "@lastSeenYesterday": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "lastSeenDate": "آخر ظهور {date} {time}",
+  "@lastSeenDate": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "chat": "محادثة",
+  "remove": "إزالة",
+  "signInToSeeMessages": "سجّل الدخول لرؤية رسائلك.",
+  "sendMessage": "إرسال رسالة",
+  "friendHanimoIdLabel": "معرّف Hanimo الخاص بصديقك (HNM-XXXXXX)",
+  "find": "بحث",
+  "messageLabel": "الرسالة",
+  "send": "إرسال",
+  "inboxTitle": "الوارد — الرسائل المرسلة إليك",
+  "sentTitle": "المُرسلة",
+  "noMessagesYet": "لا توجد رسائل بعد.",
+  "nothingSentYet": "لم ترسل شيئاً بعد.",
+  "inboxLoadFailed": "تعذّر تحميل الوارد: {error}",
+  "@inboxLoadFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "sentLoadFailed": "تعذّر تحميل المُرسلة: {error}",
+  "@sentLoadFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "toRecipient": "إلى: {name} ({id})",
+  "@toRecipient": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "replyTo": "الرد على {name}",
+  "@replyTo": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "yourReply": "ردّك",
+  "cancel": "إلغاء",
+  "save": "حفظ",
+  "signInFirst": "سجّل الدخول أولاً.",
+  "enterHanimoId": "أدخل معرّف Hanimo.",
+  "noUserWithId": "لا يوجد مستخدم بالمعرّف {id}.",
+  "@noUserWithId": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "ownId": "هذا معرّفك أنت.",
+  "addedFriend": "تمت إضافة {name} كصديق.",
+  "@addedFriend": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "couldNotAddFriend": "تعذّرت إضافة الصديق: {error}",
+  "@couldNotAddFriend": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "chattingWith": "تتحدث مع {name} ({id}).",
+  "@chattingWith": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "lookupFailed": "فشل البحث: {error}",
+  "@lookupFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "enterIdTapFind": "أدخل معرّف Hanimo الخاص بصديقك واضغط «بحث» أولاً.",
+  "writeMessageFirst": "اكتب رسالة أولاً.",
+  "messageSentTo": "تم إرسال الرسالة إلى {name}.",
+  "@messageSentTo": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "sendFailed": "فشل الإرسال: {error}",
+  "@sendFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "noPartyWithCode": "لا توجد مجموعة بالرمز {code}.",
+  "@noPartyWithCode": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "partyTitleNotInCatalog": "تم العثور على المجموعة، لكن هذا العنوان ليس في قائمتك.",
+  "couldNotJoinParty": "تعذّر الانضمام إلى المجموعة: {error}",
+  "@couldNotJoinParty": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "signedInAs": "تم تسجيل الدخول باسم {email}",
+  "@signedInAs": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "adminCheckSignIn": "سجّل الدخول للتحقق من حالة المسؤول.",
+  "notSignedIn": "لم يتم تسجيل الدخول.",
+  "adminYes": "أنت مسؤول. يمكنك إضافة الفئات والعناصر وتعديلها وحذفها.",
+  "adminNotYet": "تم تسجيل دخولك، لكنك لست مسؤولاً بعد.",
+  "adminYesShort": "أنت مسؤول.",
+  "adminCheckFailed": "فشل التحقق من المسؤول. حاول مرة أخرى.",
+  "googleSignInFailed": "فشل تسجيل الدخول عبر Google: {error}",
+  "@googleSignInFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "signedOut": "تم تسجيل الخروج.",
+  "signInAdminToEdit": "سجّل الدخول بحساب مسؤول للتعديل.",
+  "addCategory": "إضافة فئة",
+  "editCategory": "تعديل الفئة",
+  "addItem": "إضافة عنصر",
+  "editItem": "تعديل العنصر",
+  "importTopAnime": "استيراد أفضل الأنمي",
+  "categories": "الفئات",
+  "items": "العناصر",
+  "banners": "اللافتات",
+  "addons": "الإضافات",
+  "latestBuild": "أحدث إصدار",
+  "carouselTitle": "الشريط المتحرك — لافتات الرئيسية",
+  "carouselBody": "هذا ما يعرضه الشريط المتحرك في الرئيسية. أضف أو عدّل أو احذف أو غيّر رقم الترتيب — ويتحدث لدى الجميع دون تطبيق جديد. يمكن أن تكون الصورة رابط ويب، أو asset:hero.webp أو asset:series.webp أو asset:movie.webp أو asset:cyberpunk.webp أو asset:fantasy.webp للافتات المدمجة. وإذا حذفت كل اللافتات، تعود الرئيسية إلى اللافتات المدمجة.",
+  "addBanner": "إضافة لافتة",
+  "editBanner": "تعديل اللافتة",
+  "bannerImageLabel": "رابط الصورة، أو asset:hero.webp",
+  "titleLabel": "العنوان",
+  "subtitleLabel": "العنوان الفرعي",
+  "bannerCategoryLabel": "يفتح معرّف الفئة (اختياري)",
+  "orderLabel": "الترتيب",
+  "bannerSaved": "تم حفظ اللافتة. تظهر الآن في الرئيسية.",
+  "saveFailed": "فشل الحفظ: {error}",
+  "@saveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "addonsTitle": "الإضافات (بنمط Stremio)",
+  "addonsBody": "أضف رابط Manifest (…/manifest.json). توفّر إضافات الفهرس (مثل Cinemeta) قوائم أفلام ومسلسلات قابلة للتصفح؛ وتوفّر إضافات البث (مثل Torrentio) البثوث لتلك العناوين — وتُشغَّل بثوث التورنت الآن داخل التطبيق. أضف فقط الإضافات التي تثق بها.",
+  "browseAddons": "تصفح الإضافات",
+  "test": "اختبار",
+  "addAddon": "إضافة إضافة",
+  "editAddon": "تعديل الإضافة",
+  "nameLabel": "الاسم",
+  "manifestUrlLabel": "رابط Manifest (…/manifest.json)",
+  "descriptionOptional": "الوصف (اختياري)",
+  "addonSaved": "تم حفظ الإضافة.",
+  "testingAddon": "جارٍ اختبار {name}…",
+  "@testingAddon": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "addonTestResult": "{name} الإصدار {version} — {count} فهرس(فهارس){streams}{note}: {names}",
+  "@addonTestResult": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      },
+      "streams": {
+        "type": "String"
+      },
+      "note": {
+        "type": "String"
+      },
+      "names": {
+        "type": "String"
+      }
+    }
+  },
+  "addonStreamsSuffix": " + بثوث",
+  "addonStreamsOnlyNote": " (بثوث فقط — تحتاج إضافة فهرس مثل Cinemeta للتصفح)",
+  "addonTestFailed": "فشل اختبار الإضافة: {error}",
+  "@addonTestFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importingTopAnime": "جارٍ استيراد أفضل الأنمي…",
+  "importedTopTitles": "تم استيراد {count} عنواناً. أضف الروابط لكل عنصر أو حلقة من لوحة المسؤول.",
+  "@importedTopTitles": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importFailed": "فشل الاستيراد: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "addEpisodeLink": "إضافة رابط حلقة — {title}",
+  "@addEpisodeLink": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "addEpisodeLinkTooltip": "إضافة رابط حلقة",
+  "episodeNumberLabel": "رقم الحلقة",
+  "episodeTitleOptional": "عنوان الحلقة (اختياري)",
+  "episodeLinkLabel": "رابط الحلقة / رابط البث",
+  "subtitleUrlOptional": "رابط الترجمة (.vtt / .srt، اختياري)",
+  "episodeNumberMin": "يجب أن يكون رقم الحلقة 1 أو أعلى",
+  "episodeLinkSaved": "تم حفظ رابط الحلقة {number} لـ {title}.",
+  "@episodeLinkSaved": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteWhat": "حذف {what}؟",
+  "@deleteWhat": {
+    "placeholders": {
+      "what": {
+        "type": "String"
+      }
+    }
+  },
+  "selectedChannels": "القنوات المحددة",
+  "allIptvChannels": "كل قنوات IPTV",
+  "deleteIptvWarning": "سيؤدي هذا إلى حذف {count} قناة IPTV نهائياً. لا يمكن التراجع عن هذا.",
+  "@deleteIptvWarning": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "delete": "حذف",
+  "deletedIptv": "تم حذف {count} قناة IPTV.",
+  "@deletedIptv": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "deleteFailed": "فشل الحذف: {error}",
+  "@deleteFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "coverImageOptional": "رابط صورة الغلاف (اختياري)",
+  "descriptionLabel": "الوصف",
+  "categorySaved": "تم حفظ الفئة.",
+  "categoryIdLabel": "معرّف الفئة (مثال: anime-series)",
+  "posterImageOptional": "رابط صورة الملصق (اختياري)",
+  "linkLabel": "الرابط / رابط البث — أو رابط magnet: / ‎.torrent",
+  "typeLabel": "النوع: series / movie / live",
+  "malIdLabel": "معرّف MyAnimeList (يحمّل الحلقات، اختياري)",
+  "anilistIdLabel": "معرّف AniList (يحمّل الحلقات، اختياري)",
+  "scoreLabel": "التقييم (مثال: 8.7)",
+  "yearLabel": "السنة",
+  "genresLabel": "الأنواع، مفصولة بفواصل",
+  "itemSaved": "تم حفظ العنصر.",
+  "iptvTitle": "قنوات IPTV / البث المباشر",
+  "iptvBody": "كل القنوات المباشرة: المحفوظة في Firestore والمستوردة على هذا الجهاز فقط. حدّد القنوات لحذفها، أو استخدم «تحديد الكل».",
+  "selectAll": "تحديد الكل",
+  "channelCount": "{count} قناة",
+  "@channelCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "deleteSelected": "حذف المحدد ({count})",
+  "@deleteSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "deleteAllIptv": "حذف كل قنوات IPTV",
+  "noIptvChannels": "لا توجد قنوات IPTV حالياً.",
+  "savedInFirestore": "محفوظة في Firestore",
+  "importedOnDevice": "مستوردة على هذا الجهاز فقط",
+  "appUpdateTitle": "تحديث التطبيق",
+  "appUpdateBody": "عيّن رقم إصدار أحدث من التطبيق المثبّت لإظهار رسالة التحديث لجميع المستخدمين. يظهر الشريط مع زر «تحديث» يفتح رابط التنزيل.",
+  "latestBuildLabel": "رقم أحدث إصدار (مثال: 6)",
+  "versionNameLabel": "اسم الإصدار (مثال: 1.0.5)",
+  "downloadUrlLabel": "رابط التنزيل (رابط APK)",
+  "notesOptional": "ملاحظات (اختياري)",
+  "publishUpdate": "نشر التحديث",
+  "publishFailed": "فشل النشر: {error}",
+  "@publishFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "updatePublished": "تم نشر التحديث — وهو الآن في صندوق التحديثات (الجرس) وفي الشريط، وسيتلقى المستخدمون الذين لديهم التطبيق مفتوحاً إشعار نظام للضغط والتحديث. وللوصول أيضاً إلى الهواتف التي يكون التطبيق مغلقاً فيها، أرسل رسالة واحدة من Firebase Console ← Cloud Messaging إلى الموضوع app_updates مع رابط التنزيل في البيانات (الزر أدناه) — أو وافق على خطة Blaze وسيقوم التطبيق بإرسالها تلقائياً عند كل نشر.",
+  "openFcm": "فتح Firebase Cloud Messaging",
+  "noAddonsEnabled": "لا توجد إضافات مفعّلة. أضف واحدة من لوحة المسؤول أولاً.",
+  "installingCinemeta": "جارٍ تثبيت فهرس Cinemeta…",
+  "cinemetaInstalledMsg": "تم تثبيت Cinemeta — اضغط عليها أعلاه لتصفح الأفلام والمسلسلات. وسيوفّر Torrentio البثوث.",
+  "installFailed": "فشل التثبيت: {error}",
+  "@installFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "loadingAddon": "جارٍ تحميل {name}…",
+  "@loadingAddon": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "addonStreamsOnly": "توفّر هذه الإضافة البثوث فقط — وليس لها فهرس خاص. هذا طبيعي مع Torrentio: في Stremio يأتي الفهرس من Cinemeta. ثبّت فهرس Cinemeta أدناه وستوفّر {name} البثوث.",
+  "@addonStreamsOnly": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "addonNoCatalogs": "ليس لهذه الإضافة أي فهارس.",
+  "failedWithError": "فشل: {error}",
+  "@failedWithError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "installCinemetaCatalog": "تثبيت فهرس Cinemeta",
+  "loading": "جارٍ التحميل…",
+  "noItemsInCatalog": "لا توجد عناصر في هذا الفهرس.",
+  "searchCatalogHint": "ابحث في هذا الفهرس…",
+  "noCatalogSearchResults": "لا توجد عناوين تطابق بحثك.",
+  "loadingEpisodes": "جارٍ تحميل الحلقات…",
+  "noEpisodeList": "لا توجد قائمة حلقات لهذا المسلسل.",
+  "couldNotLoadEpisodes": "تعذّر تحميل الحلقات: {error}",
+  "@couldNotLoadEpisodes": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "openStreamsWholeSeries": "فتح بثوث المسلسل كاملاً",
+  "seasonEpisode": "الموسم {season} الحلقة {episode} — {name}",
+  "seasonNumber": "الموسم {season}",
+  "@seasonEpisode": {
+    "placeholders": {
+      "season": {
+        "type": "int"
+      },
+      "episode": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "loadingStreams": "جارٍ تحميل البثوث…",
+  "noStreamsFound": "لم يتم العثور على بثوث لهذا العنوان. تأكد من تفعيل إضافة بث (مثل Torrentio)، أو جرّب عنواناً آخر.",
+  "streamNumber": "البث {number}",
+  "@streamNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "torrentVia": "تورنت عبر {source}",
+  "@torrentVia": {
+    "placeholders": {
+      "source": {
+        "type": "String"
+      }
+    }
+  },
+  "openTorrent": "فتح التورنت",
+  "playlistImportTitle": "استيراد قائمة تشغيل (بنمط IPTV)",
+  "playlistImportBody": "الصق رابط قائمة تشغيل لديك، أو الصق نص M3U. تبقى القنوات المستوردة محلية ما لم تكن مسؤولاً وتختر «حفظ في Firestore». لا شيء مضمّن في التطبيق.",
+  "m3uUrlLabel": "رابط M3U",
+  "fetchPlaylist": "جلب قائمة التشغيل",
+  "pasteM3uLabel": "أو الصق نص M3U هنا",
+  "parseText": "تحليل النص",
+  "saveToFirestore": "حفظ في Firestore (للمسؤول فقط)",
+  "clear": "مسح",
+  "fetching": "جارٍ الجلب…",
+  "importedChannels": "تم استيراد {count} قناة (محلية فقط).",
+  "@importedChannels": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "fetchFailed": "فشل الجلب: {error}",
+  "@fetchFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "notAdminFirestore": "لست مسؤولاً — لا يمكن الكتابة في Firestore. سجّل الدخول بحساب مسؤول.",
+  "savedImported": "تم حفظ {count} عنصراً مستورداً في Firestore.",
+  "@savedImported": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importedCount": "المستوردة: {count} قناة",
+  "@importedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "andMore": "…و{count} أخرى",
+  "@andMore": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noUpdatesYet": "لا توجد تحديثات بعد. عند نشر إصدار جديد، سيظهر هنا — اضغط عليه للتنزيل.",
+  "hanimoUpdate": "تحديث Hanimo",
+  "hanimoVersion": "Hanimo {version}",
+  "@hanimoVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "newVersionAvailable": "يتوفر إصدار جديد.",
+  "download": "تنزيل",
+  "notificationsOff": "الإشعارات متوقفة — لن تتلقى تنبيهات التحديث على هاتفك.",
+  "enable": "تفعيل",
+  "categorySubtitle": "{count} عنصر • {description}",
+  "@categorySubtitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "description": {
+        "type": "String"
+      }
+    }
+  },
+  "noItemsInCategory": "لا توجد عناصر في هذه الفئة بعد.",
+  "episodeBadge": "الحلقة {number}",
+  "@episodeBadge": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "updateNotificationTitle": "صدر Hanimo {version}",
+  "@updateNotificationTitle": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "updateNotificationTitleNoVersion": "صدر تحديث Hanimo",
+  "tapToUpdate": "اضغط لتحديث التطبيق.",
+  "servers": "الخوادم",
+  "openExternally": "فتح خارجيًا",
+  "linkResolveFailed": "تعذّر الحصول على رابط قابل للتشغيل — جرّب خادمًا آخر.",
+  "relatedTitles": "عناوين ذات صلة",
+  "deletedItem": "تم الحذف.",
+  "trending": "الأكثر رواجًا الآن",
+  "thisSeason": "هذا الموسم",
+  "signInWithGoogle": "تسجيل الدخول عبر Google",
+  "all": "الكل",
+  "movies": "أفلام",
+  "series": "مسلسلات",
+  "loadMore": "عرض المزيد",
+  "noResults": "لا نتائج",
+  "myListTitle": "قائمتي",
+  "searchHint": "ابحث عن أنمي…",
+  "genres": "الأنواع",
+  "action": "أكشن",
+  "adventure": "مغامرة",
+  "comedy": "كوميديا",
+  "drama": "دراما",
+  "fantasy": "فانتازيا",
+  "romance": "رومانسية",
+  "sciFi": "خيال علمي",
+  "edit": "تعديل",
+  "title": "العنوان",
+  "description": "الوصف",
+  "imageUrl": "رابط الصورة",
+  "category": "التصنيف",
+  "versionName": "اسم الإصدار",
+  "downloadUrl": "رابط التحميل",
+  "notes": "ملاحظات",
+  "enableNotifications": "تفعيل الإشعارات",
+  "notificationsDenied": "الإشعارات مغلقة. فعّلها لتصلك تنبيهات التحديث.",
+  "pressBackAgain": "اضغط رجوع مرة أخرى للخروج",
+  "episodesCount": "{count} حلقات",
+  "score": "التقييم",
+  "year": "السنة",
+  "aired": "بُث",
+  "status": "الحالة",
+  "airing": "يُبث الآن",
+  "airedStatus": "مكتمل",
+  "unknown": "غير معروف"
+}
